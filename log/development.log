@@ -3420,3 +3420,105 @@ Processing by RepositoriesController#show as HTML
 Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.2ms | Allocations: 4992)
 
 
+Started GET "/repositories/Clojure?category=Tools" for ::1 at 2023-01-18 13:23:02 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RepositoriesController#show as HTML
+  Parameters: {"category"=>"Tools", "id"=>"Clojure"}
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/show.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."language" = ? AND "repositories"."category" = ?[0m  [["language", "Clojure"], ["category", "Tools"]]
+  ↳ app/views/repositories/show.html.erb:17
+  Rendered repositories/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 6506)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 12894)
+Completed 200 OK in 6029ms (Views: 13.5ms | ActiveRecord: 0.5ms | Allocations: 724158)
+
+
+Started GET "/repositories/Clojure/category" for ::1 at 2023-01-18 13:23:12 -0500
+Processing by RepositoriesController#category as HTML
+  Parameters: {"id"=>"Clojure"}
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/category.html.erb within layouts/application
+  [1m[36mRepository Load (0.4ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."language" = ? GROUP BY "repositories"."category"[0m  [["language", "Clojure"]]
+  ↳ app/views/repositories/category.html.erb:15
+  Rendered repositories/category.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 4637)
+Completed 200 OK in 23ms (Views: 19.7ms | ActiveRecord: 0.4ms | Allocations: 5285)
+
+
+Started GET "/repositories/" for ::1 at 2023-01-18 13:23:12 -0500
+Processing by RepositoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" GROUP BY "repositories"."language"[0m
+  ↳ app/views/repositories/index.html.erb:6
+  Rendered repositories/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1056)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4568)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.2ms | Allocations: 5179)
+
+
+Started GET "/repositories/new" for ::1 at 2023-01-18 13:23:14 -0500
+Processing by RepositoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/new.html.erb within layouts/application
+  Rendered repositories/_form.html.erb (Duration: 22.4ms | Allocations: 5210)
+  Rendered repositories/new.html.erb within layouts/application (Duration: 26.7ms | Allocations: 5589)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 9089)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 9721)
+
+
+Started POST "/repositories" for ::1 at 2023-01-18 13:23:26 -0500
+Processing by RepositoriesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "repository"=>{"language"=>"ruby", "category"=>"tools", "public_url"=>"https://github.com/ghostdotted/m1-backend-task"}, "commit"=>"Create Repository"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/repositories_controller.rb:33:in `block in create'
+  [1m[36mRepository Create (1.1ms)[0m  [1m[32mINSERT INTO "repositories" ("language", "category", "public_url", "created_at", "updated_at", "title", "stargazerCount", "forkCount", "lastUpdatedAt") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["language", "Ruby"], ["category", "Tools"], ["public_url", "https://github.com/ghostdotted/m1-backend-task"], ["created_at", "2023-01-18 18:23:26.290288"], ["updated_at", "2023-01-18 18:23:26.290288"], ["title", "m1-backend-task"], ["stargazerCount", 0], ["forkCount", 0], ["lastUpdatedAt", "2023-01-18"]]
+  ↳ app/controllers/repositories_controller.rb:33:in `block in create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/repositories_controller.rb:33:in `block in create'
+Redirected to http://localhost:3000/repositories
+Completed 302 Found in 160ms (ActiveRecord: 2.2ms | Allocations: 4580)
+
+
+Started GET "/repositories" for ::1 at 2023-01-18 13:23:26 -0500
+Processing by RepositoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" GROUP BY "repositories"."language"[0m
+  ↳ app/views/repositories/index.html.erb:6
+  Rendered repositories/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 826)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 4337)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.3ms | Allocations: 4808)
+
+
+Started GET "/repositories/Ruby/category" for ::1 at 2023-01-18 13:23:28 -0500
+Processing by RepositoriesController#category as HTML
+  Parameters: {"id"=>"Ruby"}
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/category.html.erb within layouts/application
+  [1m[36mRepository Load (2.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."language" = ? GROUP BY "repositories"."category"[0m  [["language", "Ruby"]]
+  ↳ app/views/repositories/category.html.erb:15
+  Rendered repositories/category.html.erb within layouts/application (Duration: 7.5ms | Allocations: 935)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 4446)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 2.2ms | Allocations: 4950)
+
+
+Started GET "/repositories/Ruby?category=Tools" for ::1 at 2023-01-18 13:23:29 -0500
+Processing by RepositoriesController#show as HTML
+  Parameters: {"category"=>"Tools", "id"=>"Ruby"}
+  Rendering layout layouts/application.html.erb
+  Rendering repositories/show.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories" WHERE "repositories"."language" = ? AND "repositories"."category" = ?[0m  [["language", "Ruby"], ["category", "Tools"]]
+  ↳ app/views/repositories/show.html.erb:17
+  Rendered repositories/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 775)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4286)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.2ms | Allocations: 4847)
+
+

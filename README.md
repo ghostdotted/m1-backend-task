@@ -4,6 +4,7 @@
 - `cd m1-backend-task`
 - `bundle install`
 - `rails db:migrate`
+- `export GITHUB_ACCESS_TOKEN="<check submission notes>"`
 - `rails db:seed`
 - `rails s`
 
