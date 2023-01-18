@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Technology Directory</h1>
+
+<ul>
+  <% @repository_by_language.each do |directory| %>
+  <li>
+    <%= link_to directory.language, category_repository_path(directory.language) %>
+  </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Repository', new_repository_path %>
