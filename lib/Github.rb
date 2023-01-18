@@ -2,7 +2,7 @@ require "graphql/client"
 require "graphql/client/http"
 
 module Github
-  GITHUB_ACCESS_TOKEN = "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" #ENV['GITHUB_ACCESS_TOKEN']
+  GITHUB_ACCESS_TOKEN = ENV['GITHUB_ACCESS_TOKEN']
   URL = 'https://api.github.com/graphql'
   HttpAdapter = GraphQL::Client::HTTP.new(URL) do
     def headers(context)
