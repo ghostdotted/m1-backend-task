@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Language</th>
+      <th>Category</th>
+      <th>Public url</th>
+      <th>Stars</th>
+      <th>Forks</th>
+      <th>Last Updated</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repositories.each do |repository| %>
+      <tr>
+        <td><%= repository.title %></td>
+        <td><%= repository.language %></td>
+        <td><%= repository.category %></td>
+        <td><%= link_to "View Github Project", repository.public_url, target: :_blank %></td>
+        <td><%= repository.stargazerCount %>
+        <td><%= repository.forkCount %>
+        <td><%= repository.lastUpdatedAt %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

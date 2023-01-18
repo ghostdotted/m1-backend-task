@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1><%= @language %> Category Directory</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @repositories.each do |repository| %>
+      <tr>
+        <td><%= repository.category %></td>
+        <td><%= link_to "List", repository_path(@language, category: repository.category) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
